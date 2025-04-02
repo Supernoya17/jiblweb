@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JiblWeb - Bring Your Business to the Web!</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- GSAP scripts with fallback handling -->
+    <script>
+        window.gsapLoaded = false;
+        function markGsapLoaded() {
+            window.gsapLoaded = true;
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" onload="markGsapLoaded()" onerror="console.warn('GSAP failed to load')"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" onerror="console.warn('ScrollTrigger failed to load')"></script>
+</head>
+<body class="text-gray-900 font-body">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-background shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="logo-container text-2xl font-bold flex items-center">
+                <span class="logo-text"><span class="logo-jibl">JIBL</span><span class="logo-web">WEB</span></span>
+                <span class="logo-dot"></span>
+            </div>
+
+                <div class="space-x-6 nav-links hidden md:flex items-center">
+                    <a href="#services" class="text-light hover:text-primary transition-colors">Services</a>
+                    <a href="#pricing" class="text-light hover:text-primary transition-colors">Pricing</a>
+                    <a href="#clients" class="text-light hover:text-primary transition-colors">Clients</a>
+                    <a href="#contact" class="bg-primary text-dark px-5 py-2 rounded-full hover:bg-primary-dark transition-colors">Contact Us</a>
+                    <select id="language-select" class="px-4 py-2 rounded-full focus:outline-none">
+                        <option value="en">English</option>
+                        <option value="fr">Français</option>
+                        <option value="ar">العربية</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav hidden absolute w-full bg-background py-4 shadow-lg" id="mobile-nav">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#services" class="text-light hover:text-primary transition-colors text-center py-2">Services</a>
+                    <a href="#pricing" class="text-light hover:text-primary transition-colors text-center py-2">Pricing</a>
+                    <a href="#clients" class="text-light hover:text-primary transition-colors text-center py-2">Clients</a>
+                    <a href="#contact" class="bg-primary text-dark px-5 py-2 rounded-full hover:bg-primary-dark transition-colors text-center">Contact Us</a>
+                    <div class="flex justify-center mt-2">
+                        <select id="mobile-language-select" class="px-4 py-2 rounded-full focus:outline-none">
+                            <option value="en">English</option>
+                            <option value="fr">Français</option>
+                            <option value="ar">العربية</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<!-- Hero Section -->
+<header class="hero-section text-white pt-28 pb-20">
+    <div class="container mx-auto px-4 flex items-center flex-wrap md:flex-nowrap">
+        <div class="w-full md:w-1/2 pr-0 md:pr-10 mb-8 md:mb-0">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6" data-en="Bring Your Business to the Web!" data-fr="Amenez votre entreprise sur le Web!" data-ar="اجلب عملك إلى الويب!">Bring Your Business to the Web!</h1>
+            <p class="text-lg md:text-xl mb-8 opacity-90" data-en="We transform your digital presence with custom websites, professional photography, and powerful marketing strategies." data-fr="Nous transformons votre présence numérique avec des sites Web personnalisés, des photographies professionnelles et des stratégies de marketing puissantes." data-ar="نحن نحول وجودك الرقمي بمواقع ويب مخصصة وتصوير احترافي واستراتيجيات تسويق قوية.">We transform your digital presence with custom websites, professional photography, and powerful marketing strategies.</p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#services" class="bg-primary text-dark px-8 py-3 rounded-full font-semibold hover:bg-primary-dark transition-all transform hover:-translate-y-1 shadow-lg" data-en="Our Services" data-fr="Nos Services" data-ar="خدماتنا">Our Services</a>
+                <a href="#contact" class="border-2 border-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-primary hover:text-dark transition-all transform hover:-translate-y-1 shadow-lg" data-en="Get Started" data-fr="Commencer" data-ar="ابدأ">Get Started</a>
+            </div>
+        </div>
+        <div class="w-full md:w-1/2">
+            <div class="hero-image-container">
+                <img src="background.png" alt="JiblWeb Digital Services" class="rounded-lg shadow-2xl w-full">
+                <div class="floating-shape shape1"></div>
+                <div class="floating-shape shape2"></div>
+                <div class="floating-shape shape3"></div>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-4 section-title" data-en="Our Services" data-fr="Nos Services" data-ar="خدماتنا">Our Services</h2>
+            <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto" data-en="Comprehensive digital solutions to grow your business" data-fr="Solutions numériques complètes pour développer votre entreprise" data-ar="حلول رقمية شاملة لتنمية عملك">Comprehensive digital solutions to grow your business</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg class="w-16 h-16 mx-auto text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4" data-en="Website Development" data-fr="Développement de sites Web" data-ar="تطوير المواقع">Website Development</h3>
+                    <p data-en="Custom-coded and WordPress websites tailored to your unique business needs." data-fr="Sites Web codés sur mesure et WordPress adaptés à vos besoins commerciaux uniques." data-ar="مواقع ويب مخصصة ومصممة خصيصًا لتلبية احتياجات عملك الفريدة.">Custom-coded and WordPress websites tailored to your unique business needs.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg class="w-16 h-16 mx-auto text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4" data-en="E-commerce Solutions" data-fr="Solutions de commerce électronique" data-ar="حلول التجارة الإلكترونية">E-commerce Solutions</h3>
+                    <p data-en="Secure and user-friendly online stores to boost your sales effectively." data-fr="Boutiques en ligne sécurisées et conviviales pour augmenter vos ventes efficacement." data-ar="متاجر إلكترونية آمنة وسهلة الاستخدام لزيادة مبيعاتك بشكل فعال.">Secure and user-friendly online stores to boost your sales effectively.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg class="w-16 h-16 mx-auto text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4" data-en="Photography & Video" data-fr="Photographie & Vidéo" data-ar="التصوير الفوتوغرافي والفيديو">Photography & Video</h3>
+                    <p data-en="High-quality visuals that capture your brand's unique essence and story." data-fr="Visuels de haute qualité qui capturent l'essence unique et l'histoire de votre marque." data-ar="صور عالية الجودة تلتقط جوهر علامتك التجارية الفريد وقصتها.">High-quality visuals that capture your brand's unique essence and story.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg class="w-16 h-16 mx-auto text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4" data-en="Social Media Management" data-fr="Gestion des médias sociaux" data-ar="إدارة وسائل التواصل الاجتماعي">Social Media Management</h3>
+                    <p data-en="Grow your online audience and attract more customers through strategic marketing." data-fr="Développez votre audience en ligne et attirez plus de clients grâce au marketing stratégique." data-ar="قم بتنمية جمهورك عبر الإنترنت وجذب المزيد من العملاء من خلال التسويق الاستراتيجي.">Grow your online audience and attract more customers through strategic marketing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Clients Section -->
+    <section id="clients" class="py-16 bg-dark overflow-hidden">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-4 section-title" data-en="Trusted By" data-fr="De confiance par" data-ar="موثوق به من قبل">Trusted By</h2>
+            <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto" data-en="Businesses that rely on our expertise" data-fr="Entreprises qui font confiance à notre expertise" data-ar="الشركات التي تعتمد على خبرتنا">Businesses that rely on our expertise</p>
+            
+            <div class="logo-slider-container">
+                <div class="logo-slider">
+                    <div class="logo-slider-inner">
+                        <div class="client-logo-wrapper">
+                            <img src="xiaomi.png" alt="Client Logo" class="client-logo">
+                        </div>
+                        <div class="client-logo-wrapper">
+                            <img src="carlcare.png" alt="Client Logo" class="client-logo">
+                        </div>
+                        <div class="client-logo-wrapper">
+                            <img src="infinix.png" alt="Client Logo" class="client-logo">
+                        </div>
+                        <div class="client-logo-wrapper">
+                            <img src="marjane.png" alt="Client Logo" class="client-logo">
+                        </div>
+                        <div class="client-logo-wrapper">
+                            <img src="algeria.png" alt="Client Logo" class="client-logo">
+                        </div>
+                        <!-- Duplicate logos for continuous sliding effect -->
+                        <div class="client-logo-wrapper">
+                            <img src="xiaomi.png" alt="Client Logo" class="client-logo">
+                        </div>
+                        <div class="client-logo-wrapper">
+                            <img src="carlcare.png" alt="Client Logo" class="client-logo">
+                        </div>
+                        <div class="client-logo-wrapper">
+                            <img src="infinix.png" alt="Client Logo" class="client-logo">
+                        </div>
+                        <div class="client-logo-wrapper">
+                            <img src="marjane.png" alt="Client Logo" class="client-logo">
+                        </div>
+                        <div class="client-logo-wrapper">
+                            <img src="algeria.png" alt="Client Logo" class="client-logo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4 section-title" data-en="Our Website Packages" data-fr="Nos forfaits de site Web" data-ar="حزم مواقعنا الإلكترونية">Our Website Packages</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-en="Choose the perfect plan for your business" data-fr="Choisissez le plan parfait pour votre entreprise" data-ar="اختر الخطة المثالية لعملك">Choose the perfect plan for your business</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Starter Plan -->
+                <div class="pricing-plan">
+                    <div class="plan-header mb-6">
+                        <h3 class="text-2xl font-semibold text-primary" data-en="Starter" data-fr="Débutant" data-ar="مبتدئ">Starter</h3>
+                    </div>
+                    <div class="plan-content">
+                        <div class="plan-price text-4xl font-bold mb-4 text-primary" data-en="3,500 MAD" data-fr="3,500 MAD" data-ar="3,500 MAD">3,500 MAD</div>
+                        <p class="mb-6 text-gray-600" data-en="Perfect for small businesses just getting started online." data-fr="Parfait pour les petites entreprises qui débutent en ligne." data-ar="مثالي للشركات الصغيرة التي بدأت للتو عبر الإنترنت.">Perfect for small businesses just getting started online.</p>
+                        <ul class="plan-features text-left mb-8 space-y-2">
+                            <li data-en="Basic Website (Up to 5 pages)" data-fr="Site Web de base (jusqu'à 5 pages)" data-ar="موقع ويب أساسي (حتى 5 صفحات)">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Basic Website (Up to 5 pages)
+                            </li>
+                            <li data-en="Mobile Responsive Design" data-fr="Design réactif mobile" data-ar="تصميم متجاوب مع الجوال">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Mobile Responsive Design
+                            </li>
+                            <li data-en=".ma Domain Registration" data-fr="Enregistrement de domaine .ma" data-ar="تسجيل نطاق .ma">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                .ma Domain Registration
+                            </li>
+                            <li data-en="1 Year Hosting" data-fr="1 an d'hébergement" data-ar="استضافة لمدة سنة واحدة">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                1 Year Hosting
+                            </li>
+                            <li data-en="Basic SEO Setup" data-fr="Configuration SEO de base" data-ar="إعداد SEO الأساسي">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Basic SEO Setup
+                            </li>
+                            <li data-en="Contact Form" data-fr="Formulaire de contact" data-ar="نموذج الاتصال">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Contact Form
+                            </li>
+                            <li data-en="5 Professional Photos" data-fr="5 photos professionnelles" data-ar="5 صور احترافية">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                5 Professional Photos
+                            </li>
+                        </ul>
+                        <a href="#contact" class="w-full block bg-primary text-dark py-3 rounded-full hover:bg-primary-dark transition-all transform hover:-translate-y-1" data-en="Contact Us" data-fr="Contactez-nous" data-ar="اتصل بنا">Contact Us</a>
+                    </div>
+                </div>
+                
+                <!-- Professional Plan -->
+                <div class="pricing-plan pricing-featured">
+                    <div class="popular-badge" data-en="Most Popular" data-fr="Le plus populaire" data-ar="الأكثر شعبية">Most Popular</div>
+                    <div class="plan-header mb-6">
+                        <h3 class="text-2xl font-semibold text-primary" data-en="Professional" data-fr="Professionnel" data-ar="احترافي">Professional</h3>
+                    </div>
+                    <div class="plan-content">
+                        <div class="plan-price text-4xl font-bold mb-4 text-primary" data-en="7,500 MAD" data-fr="7,500 MAD" data-ar="7,500 MAD">7,500 MAD</div>
+                        <p class="mb-6 text-gray-600" data-en="Ideal for established businesses looking to enhance their online presence." data-fr="Idéal pour les entreprises établies cherchant à améliorer leur présence en ligne." data-ar="مثالي للشركات الراسخة التي تتطلع إلى تعزيز وجودها عبر الإنترنت.">Ideal for established businesses looking to enhance their online presence.</p>
+                        <ul class="plan-features text-left mb-8 space-y-2">
+                            <li data-en="Custom Website (Up to 10 pages)" data-fr="Site Web personnalisé (jusqu'à 10 pages)" data-ar="موقع ويب مخصص (حتى 10 صفحات)">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Custom Website (Up to 10 pages)
+                            </li>
+                            <li data-en="Mobile Responsive Design" data-fr="Design réactif mobile" data-ar="تصميم متجاوب مع الجوال">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Mobile Responsive Design
+                            </li>
+                            <li data-en=".ma Domain Registration" data-fr="Enregistrement de domaine .ma" data-ar="تسجيل نطاق .ma">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                .ma Domain Registration
+                            </li>
+                            <li data-en="1 Year Premium Hosting" data-fr="1 an d'hébergement premium" data-ar="استضافة متميزة لمدة سنة واحدة">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                1 Year Premium Hosting
+                            </li>
+                            <li data-en="Advanced SEO Optimization" data-fr="Optimisation SEO avancée" data-ar="تحسين SEO المتقدم">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Advanced SEO Optimization
+                            </li>
+                            <li data-en="Contact Form with CRM Integration" data-fr="Formulaire de contact avec intégration CRM" data-ar="نموذج الاتصال مع تكامل CRM">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Contact Form with CRM Integration
+                            </li>
+                            <li data-en="15 Professional Photos" data-fr="15 photos professionnelles" data-ar="15 صور احترافية">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                15 Professional Photos
+                            </li>
+                            <li data-en="1 Promotional Video (30 seconds)" data-fr="1 vidéo promotionnelle (30 secondes)" data-ar="فيديو ترويجي واحد (30 ثانية)">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                1 Promotional Video (30 seconds)
+                            </li>
+                            <li data-en="Social Media Setup" data-fr="Configuration des médias sociaux" data-ar="إعداد وسائل التواصل الاجتماعي">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Social Media Setup
+                            </li>
+                        </ul>
+                        <a href="#contact" class="w-full block bg-primary text-dark py-3 rounded-full hover:bg-primary-dark transition-all transform hover:-translate-y-1" data-en="Contact Us" data-fr="Contactez-nous" data-ar="اتصل بنا">Contact Us</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-plan">
+                    <div class="plan-header mb-6">
+                        <h3 class="text-2xl font-semibold text-primary" data-en="Premium" data-fr="Premium" data-ar="مميز">Premium</h3>
+                    </div>
+                    <div class="plan-content">
+                        <div class="plan-price text-4xl font-bold mb-4 text-primary" data-en="12,000+ MAD" data-fr="12,000+ MAD" data-ar="12,000+ MAD">12,000+ MAD</div>
+                        <p class="mb-6 text-gray-600" data-en="Comprehensive solution for businesses requiring a strong online presence." data-fr="Solution complète pour les entreprises nécessitant une forte présence en ligne." data-ar="حل شامل للشركات التي تتطلب وجودًا قويًا عبر الإنترنت.">Comprehensive solution for businesses requiring a strong online presence.</p>
+                        <ul class="plan-features text-left mb-8 space-y-2">
+                            <li data-en="Custom Website (Unlimited pages)" data-fr="Site Web personnalisé (pages illimitées)" data-ar="موقع ويب مخصص (صفحات غير محدودة)">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Custom Website (Unlimited pages)
+                            </li>
+                            <li data-en="Mobile Responsive Design" data-fr="Design réactif mobile" data-ar="تصميم متجاوب مع الجوال">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Mobile Responsive Design
+                            </li>
+                            <li data-en=".ma Domain Registration" data-fr="Enregistrement de domaine .ma" data-ar="تسجيل نطاق .ma">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                .ma Domain Registration
+                            </li>
+                            <li data-en="2 Years Premium Hosting" data-fr="2 ans d'hébergement premium" data-ar="استضافة متميزة لمدة سنتين">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                2 Years Premium Hosting
+                            </li>
+                            <li data-en="Comprehensive SEO Strategy" data-fr="Stratégie SEO complète" data-ar="استراتيجية SEO شاملة">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Comprehensive SEO Strategy
+                            </li>
+                            <li data-en="Advanced Booking/Payment System" data-fr="Système de réservation/paiement avancé" data-ar="نظام الحجز/الدفع المتقدم">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Advanced Booking/Payment System
+                            </li>
+                            <li data-en="30 Professional Photos" data-fr="30 photos professionnelles" data-ar="30 صور احترافية">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                30 Professional Photos
+                            </li>
+                            <li data-en="3 Promotional Videos" data-fr="3 vidéos promotionnelles" data-ar="3 مقاطع فيديو ترويجية">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                3 Promotional Videos
+                            </li>
+                            <li data-en="Social Media Setup & Management" data-fr="Configuration et gestion des médias sociaux" data-ar="إعداد وإدارة وسائل التواصل الاجتماعي">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Social Media Setup & Management
+                            </li>
+                            <li data-en="Google Ads Campaign Setup" data-fr="Configuration de campagne Google Ads" data-ar="إعداد حملة إعلانات Google">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Google Ads Campaign Setup
+                            </li>
+                            <li data-en="Monthly Performance Reports" data-fr="Rapports de performance mensuels" data-ar="تقارير الأداء الشهرية">
+                                <svg class="w-5 h-5 inline-block mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Monthly Performance Reports
+                            </li>
+                        </ul>
+                        <a href="#contact" class="w-full block bg-primary text-dark py-3 rounded-full hover:bg-primary-dark transition-all transform hover:-translate-y-1" data-en="Contact Us" data-fr="Contactez-nous" data-ar="اتصل بنا">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-background text-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4 section-title" data-en="Client Testimonials" data-fr="Témoignages de clients" data-ar="شهادات العملاء">Client Testimonials</h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto" data-en="What our clients say about us" data-fr="Ce que nos clients disent de nous" data-ar="ما يقوله عملاؤنا عنا">What our clients say about us</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="p-6 rounded-lg bg-gradient-to-br from-background to-dark relative">
+                        <div class="testimonial-quote">"</div>
+                        <p class="mb-4 testimonial-text" data-en="JiblWeb transformed our online presence completely. Our e-commerce sales have increased by 70% since the new website launch!" data-fr="JiblWeb a complètement transformé notre présence en ligne. Nos ventes e-commerce ont augmenté de 70% depuis le lancement du nouveau site web!" data-ar="لقد غير JiblWeb وجودنا على الإنترنت تمامًا. زادت مبيعات التجارة الإلكترونية لدينا بنسبة 70٪ منذ إطلاق الموقع الجديد!">JiblWeb transformed our online presence completely. Our e-commerce sales have increased by 70% since the new website launch!</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center font-bold text-dark">SM</div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold" data-en="Sarah Mansouri" data-fr="Sarah Mansouri" data-ar="سارة منصوري">Sarah Mansouri</h4>
+                                <p class="text-sm text-gray-400" data-en="Fashion Retailer" data-fr="Détaillant de mode" data-ar="بائع تجزئة للأزياء">Fashion Retailer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="p-6 rounded-lg bg-gradient-to-br from-background to-dark relative">
+                        <div class="testimonial-quote">"</div>
+                        <p class="mb-4 testimonial-text" data-en="The photography service was exceptional. JiblWeb captured the essence of our restaurant perfectly. Highly recommended!" data-fr="Le service de photographie était exceptionnel. JiblWeb a parfaitement capturé l'essence de notre restaurant. Fortement recommandé!" data-ar="كانت خدمة التصوير استثنائية. التقط JiblWeb جوهر مطعمنا بشكل مثالي. موصى به بشدة!">The photography service was exceptional. JiblWeb captured the essence of our restaurant perfectly. Highly recommended!</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center font-bold text-dark">HB</div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold" data-en="Hassan Benali" data-fr="Hassan Benali" data-ar="حسن بنعلي">Hassan Benali</h4>
+                                <p class="text-sm text-gray-400" data-en="Restaurant Owner" data-fr="Propriétaire de restaurant" data-ar="صاحب مطعم">Restaurant Owner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="p-6 rounded-lg bg-gradient-to-br from-background to-dark relative">
+                        <div class="testimonial-quote">"</div>
+                        <p class="mb-4 testimonial-text" data-en="Working with JiblWeb was effortless. They understood our needs and delivered beyond our expectations. The SEO work has put us on the first page of Google!" data-fr="Travailler avec JiblWeb a été un jeu d'enfant. Ils ont compris nos besoins et ont dépassé nos attentes. Le travail de référencement nous a placés en première page de Google!" data-ar="كان العمل مع JiblWeb سهلاً. لقد فهموا احتياجاتنا وقدموا أكثر من توقعاتنا. عمل تحسين محركات البحث وضعنا في الصفحة الأولى من Google!">Working with JiblWeb was effortless. They understood our needs and delivered beyond our expectations. The SEO work has put us on the first page of Google!</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center font-bold text-dark">LF</div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold" data-en="Laila Fassi" data-fr="Laila Fassi" data-ar="ليلى فاسي">Laila Fassi</h4>
+                                <p class="text-sm text-gray-400" data-en="Real Estate Agency" data-fr="Agence immobilière" data-ar="وكالة عقارية">Real Estate Agency</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Process Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 section-title" data-en="Our Process" data-fr="Notre processus" data-ar="عمليتنا">Our Process</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-en="How we bring your business online" data-fr="Comment nous mettons votre entreprise en ligne" data-ar="كيف نجلب عملك عبر الإنترنت">How we bring your business online</p>
+            </div>
+            
+            <div class="process-timeline">
+                <!-- Step 1 -->
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <div class="process-content">
+                        <h3 class="text-2xl font-semibold mb-3 text-dark" data-en="Consultation & Planning" data-fr="Consultation et planification" data-ar="التشاور والتخطيط">Consultation & Planning</h3>
+                        <p class="text-gray-600" data-en="We start by understanding your business goals, target audience, and specific requirements through detailed consultation." data-fr="Nous commençons par comprendre vos objectifs commerciaux, votre public cible et vos besoins spécifiques grâce à une consultation détaillée." data-ar="نبدأ بفهم أهداف عملك والجمهور المستهدف والمتطلبات المحددة من خلال استشارة مفصلة.">We start by understanding your business goals, target audience, and specific requirements through detailed consultation.</p>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <div class="process-content">
+                        <h3 class="text-2xl font-semibold mb-3 text-dark" data-en="Design & Development" data-fr="Conception et développement" data-ar="التصميم والتطوير">Design & Development</h3>
+                        <p class="text-gray-600" data-en="Our creative team designs a custom website tailored to your brand while our developers build a functional, responsive solution." data-fr="Notre équipe créative conçoit un site Web personnalisé adapté à votre marque tandis que nos développeurs créent une solution fonctionnelle et réactive." data-ar="يقوم فريقنا الإبداعي بتصميم موقع ويب مخصص مصمم لعلامتك التجارية بينما يقوم المطورون لدينا ببناء حل وظيفي ومتجاوب.">Our creative team designs a custom website tailored to your brand while our developers build a functional, responsive solution.</p>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <div class="process-content">
+                        <h3 class="text-2xl font-semibold mb-3 text-dark" data-en="Content Creation" data-fr="Création de contenu" data-ar="إنشاء المحتوى">Content Creation</h3>
+                        <p class="text-gray-600" data-en="We create compelling content, take professional photographs, and produce videos that highlight your products and services." data-fr="Nous créons du contenu convaincant, prenons des photographies professionnelles et produisons des vidéos qui mettent en valeur vos produits et services." data-ar="نقوم بإنشاء محتوى مقنع والتقاط صور احترافية وإنتاج مقاطع فيديو تسلط الضوء على منتجاتك وخدماتك.">We create compelling content, take professional photographs, and produce videos that highlight your products and services.</p>
+                    </div>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <div class="process-content">
+                        <h3 class="text-2xl font-semibold mb-3 text-dark" data-en="Testing & Launch" data-fr="Test et lancement" data-ar="الاختبار والإطلاق">Testing & Launch</h3>
+                        <p class="text-gray-600" data-en="We thoroughly test your website across devices and browsers before launching it to ensure everything works flawlessly." data-fr="Nous testons minutieusement votre site Web sur différents appareils et navigateurs avant de le lancer pour nous assurer que tout fonctionne parfaitement." data-ar="نختبر موقع الويب الخاص بك بدقة عبر الأجهزة والمتصفحات قبل إطلاقه للتأكد من أن كل شيء يعمل بشكل مثالي.">We thoroughly test your website across devices and browsers before launching it to ensure everything works flawlessly.</p>
+                    </div>
+                </div>
+                
+                <!-- Step 5 -->
+                <div class="process-step">
+                    <div class="process-number">5</div>
+                    <div class="process-content">
+                        <h3 class="text-2xl font-semibold mb-3 text-dark" data-en="Marketing & Growth" data-fr="Marketing et croissance" data-ar="التسويق والنمو">Marketing & Growth</h3>
+                        <p class="text-gray-600" data-en="We implement SEO strategies, social media campaigns, and ongoing support to help your business grow online." data-fr="Nous mettons en œuvre des stratégies de référencement, des campagnes sur les réseaux sociaux et un support continu pour aider votre entreprise à se développer en ligne." data-ar="نقوم بتنفيذ استراتيجيات تحسين محركات البحث وحملات وسائل التواصل الاجتماعي والدعم المستمر لمساعدة عملك على النمو عبر الإنترنت.">We implement SEO strategies, social media campaigns, and ongoing support to help your business grow online.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4 section-title" data-en="Frequently Asked Questions" data-fr="Questions fréquemment posées" data-ar="الأسئلة المتكررة">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-en="Answers to common questions about our services" data-fr="Réponses aux questions courantes sur nos services" data-ar="إجابات على الأسئلة الشائعة حول خدماتنا">Answers to common questions about our services</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="faq-container">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item mb-6">
+                        <div class="faq-question" data-en="How long does it take to build a website?" data-fr="Combien de temps faut-il pour créer un site web?" data-ar="كم من الوقت يستغرق بناء موقع ويب؟">
+                            <h3 class="text-xl font-semibold text-dark flex justify-between items-center cursor-pointer">
+                                How long does it take to build a website?
+                                <svg class="w-6 h-6 faq-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </h3>
+                        </div>
+                        <div class="faq-answer hidden mt-3 text-gray-600 pl-2" data-en="The timeline varies depending on the complexity of the project. A basic website typically takes 2-4 weeks, while more complex e-commerce sites may take 6-8 weeks. We'll provide a detailed timeline during our initial consultation." data-fr="Le calendrier varie en fonction de la complexité du projet. Un site Web basique prend généralement 2 à 4 semaines, tandis que des sites de commerce électronique plus complexes peuvent prendre 6 à 8 semaines. Nous fournirons un calendrier détaillé lors de notre consultation initiale." data-ar="يختلف الجدول الزمني حسب تعقيد المشروع. يستغرق الموقع الإلكتروني الأساسي عادةً من 2 إلى 4 أسابيع، بينما قد تستغرق مواقع التجارة الإلكترونية الأكثر تعقيدًا من 6 إلى 8 أسابيع. سنقدم جدولًا زمنيًا مفصلاً خلال استشارتنا الأولية.">
+                            The timeline varies depending on the complexity of the project. A basic website typically takes 2-4 weeks, while more complex e-commerce sites may take 6-8 weeks. We'll provide a detailed timeline during our initial consultation.
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item mb-6">
+                        <div class="faq-question" data-en="Do you handle website hosting?" data-fr="Gérez-vous l'hébergement de sites Web?" data-ar="هل تتعامل مع استضافة مواقع الويب؟">
+                            <h3 class="text-xl font-semibold text-dark flex justify-between items-center cursor-pointer">
+                                Do you handle website hosting?
+                                <svg class="w-6 h-6 faq-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </h3>
+                        </div>
+                        <div class="faq-answer hidden mt-3 text-gray-600 pl-2" data-en="Yes, all our website packages include hosting for the first year. We use reliable, high-performance hosting services to ensure your website loads quickly and remains secure. After the first year, hosting can be renewed at competitive rates." data-fr="Oui, tous nos forfaits de site Web incluent l'hébergement pour la première année. Nous utilisons des services d'hébergement fiables et performants pour garantir que votre site Web se charge rapidement et reste sécurisé. Après la première année, l'hébergement peut être renouvelé à des tarifs compétitifs." data-ar="نعم، تتضمن جميع حزم موقع الويب لدينا استضافة للسنة الأولى. نحن نستخدم خدمات استضافة موثوقة وعالية الأداء لضمان تحميل موقع الويب الخاص بك بسرعة وبقائه آمنًا. بعد السنة الأولى، يمكن تجديد الاستضافة بأسعار تنافسية.">
+                            Yes, all our website packages include hosting for the first year. We use reliable, high-performance hosting services to ensure your website loads quickly and remains secure. After the first year, hosting can be renewed at competitive rates.
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item mb-6">
+                        <div class="faq-question" data-en="Can you help with content creation?" data-fr="Pouvez-vous aider à la création de contenu?" data-ar="هل يمكنك المساعدة في إنشاء المحتوى؟">
+                            <h3 class="text-xl font-semibold text-dark flex justify-between items-center cursor-pointer">
+                                Can you help with content creation?
+                                <svg class="w-6 h-6 faq-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </h3>
+                        </div>
+                        <div class="faq-answer hidden mt-3 text-gray-600 pl-2" data-en="Absolutely! Our team includes professional copywriters, photographers, and videographers who can create high-quality content for your website. We tailor content to reflect your brand's voice and connect with your target audience." data-fr="Absolument! Notre équipe comprend des rédacteurs, des photographes et des vidéastes professionnels qui peuvent créer du contenu de haute qualité pour votre site Web. Nous adaptons le contenu pour refléter la voix de votre marque et établir un lien avec votre public cible." data-ar="بالتأكيد! يضم فريقنا كتّابًا ومصورين ومصوري فيديو محترفين يمكنهم إنشاء محتوى عالي الجودة لموقع الويب الخاص بك. نقوم بتخصيص المحتوى ليعكس صوت علامتك التجارية ويتواصل مع جمهورك المستهدف.">
+                            Absolutely! Our team includes professional copywriters, photographers, and videographers who can create high-quality content for your website. We tailor content to reflect your brand's voice and connect with your target audience.
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item mb-6">
+                        <div class="faq-question" data-en="What payment methods do you accept?" data-fr="Quels modes de paiement acceptez-vous?" data-ar="ما هي طرق الدفع التي تقبلونها؟">
+                            <h3 class="text-xl font-semibold text-dark flex justify-between items-center cursor-pointer">
+                                What payment methods do you accept?
+                                <svg class="w-6 h-6 faq-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </h3>
+                        </div>
+                        <div class="faq-answer hidden mt-3 text-gray-600 pl-2" data-en="We accept bank transfers, credit cards, and mobile payment methods. For larger projects, we offer installment payment plans. A 50% deposit is typically required to begin work, with the remaining balance due upon project completion." data-fr="Nous acceptons les virements bancaires, les cartes de crédit et les méthodes de paiement mobile. Pour les projets plus importants, nous proposons des plans de paiement échelonné. Un acompte de 50% est généralement requis pour commencer les travaux, le solde restant étant dû à l'achèvement du projet." data-ar="نقبل التحويلات المصرفية وبطاقات الائتمان وطرق الدفع المتنقلة. بالنسبة للمشاريع الأكبر، نق
+						<div class="faq-answer hidden mt-3 text-gray-600 pl-2" data-en="We accept bank transfers, credit cards, and mobile payment methods. For larger projects, we offer installment payment plans. A 50% deposit is typically required to begin work, with the remaining balance due upon project completion." data-fr="Nous acceptons les virements bancaires, les cartes de crédit et les méthodes de paiement mobile. Pour les projets plus importants, nous proposons des plans de paiement échelonné. Un acompte de 50% est généralement requis pour commencer les travaux, le solde restant étant dû à l'achèvement du projet." data-ar="نقبل التحويلات المصرفية وبطاقات الائتمان وطرق الدفع المتنقلة. بالنسبة للمشاريع الأكبر، نقدم خطط دفع بالتقسيط. عادة ما يكون مطلوبًا إيداع 50٪ لبدء العمل، مع استحقاق الرصيد المتبقي عند الانتهاء من المشروع.">
+                            We accept bank transfers, credit cards, and mobile payment methods. For larger projects, we offer installment payment plans. A 50% deposit is typically required to begin work, with the remaining balance due upon project completion.
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item">
+                        <div class="faq-question" data-en="Do you offer ongoing support after the website launch?" data-fr="Offrez-vous un support continu après le lancement du site Web?" data-ar="هل تقدمون دعمًا مستمرًا بعد إطلاق الموقع؟">
+                            <h3 class="text-xl font-semibold text-dark flex justify-between items-center cursor-pointer">
+                                Do you offer ongoing support after the website launch?
+                                <svg class="w-6 h-6 faq-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </h3>
+                        </div>
+                        <div class="faq-answer hidden mt-3 text-gray-600 pl-2" data-en="Yes, we offer various maintenance and support packages to keep your website running smoothly. These include regular updates, security monitoring, content updates, and technical support. We recommend a maintenance plan for all websites to ensure they remain secure and up-to-date." data-fr="Oui, nous proposons divers packages de maintenance et de support pour assurer le bon fonctionnement de votre site Web. Ceux-ci comprennent des mises à jour régulières, une surveillance de la sécurité, des mises à jour de contenu et un support technique. Nous recommandons un plan de maintenance pour tous les sites Web afin de garantir qu'ils restent sécurisés et à jour." data-ar="نعم، نقدم حزم صيانة ودعم متنوعة للحفاظ على تشغيل موقع الويب الخاص بك بسلاسة. تشمل هذه التحديثات المنتظمة ومراقبة الأمان وتحديثات المحتوى والدعم الفني. نوصي بخطة صيانة لجميع مواقع الويب لضمان بقائها آمنة ومحدثة.">
+                            Yes, we offer various maintenance and support packages to keep your website running smoothly. These include regular updates, security monitoring, content updates, and technical support. We recommend a maintenance plan for all websites to ensure they remain secure and up-to-date.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-background">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-6 text-light" data-en="Stay Updated" data-fr="Restez informé" data-ar="ابق على اطلاع">Stay Updated</h2>
+                <p class="text-xl text-gray-400 mb-10" data-en="Subscribe to our newsletter for digital marketing tips, web design trends, and exclusive offers." data-fr="Abonnez-vous à notre newsletter pour des conseils de marketing digital, des tendances de conception web et des offres exclusives." data-ar="اشترك في نشرتنا الإخبارية للحصول على نصائح التسويق الرقمي واتجاهات تصميم الويب والعروض الحصرية.">Subscribe to our newsletter for digital marketing tips, web design trends, and exclusive offers.</p>
+                
+                <form class="newsletter-form flex flex-col md:flex-row gap-4 items-center justify-center">
+                    <input type="email" placeholder="Your Email Address" class="bg-dark px-6 py-3 rounded-full text-light w-full md:w-auto md:flex-grow focus:outline-none focus:ring-2 focus:ring-primary" required>
+                    <button type="submit" class="bg-primary text-dark px-8 py-3 rounded-full font-semibold hover:bg-primary-dark transition-colors w-full md:w-auto">Subscribe</button>
+                </form>
+                
+                <p class="text-sm text-gray-500 mt-6" data-en="We respect your privacy. Unsubscribe at any time." data-fr="Nous respectons votre vie privée. Désabonnez-vous à tout moment." data-ar="نحن نحترم خصوصيتك. إلغاء الاشتراك في أي وقت.">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Portfolio Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4 section-title" data-en="Our Portfolio" data-fr="Notre Portfolio" data-ar="معرض أعمالنا">Our Portfolio</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-en="See some of our recent projects" data-fr="Découvrez certains de nos projets récents" data-ar="شاهد بعض مشاريعنا الأخيرة">See some of our recent projects</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item">
+                    <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                        <div class="bg-gray-300 h-64"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <h3 class="text-xl font-semibold text-white mb-2" data-en="Luxury Resort Website" data-fr="Site Web de resort de luxe" data-ar="موقع منتجع فاخر">Luxury Resort Website</h3>
+                            <p class="text-gray-200" data-en="Custom WordPress design with booking integration" data-fr="Conception WordPress personnalisée avec intégration de réservation" data-ar="تصميم ووردبريس مخصص مع تكامل الحجز">Custom WordPress design with booking integration</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-item">
+                    <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                        <div class="bg-gray-300 h-64"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <h3 class="text-xl font-semibold text-white mb-2" data-en="Fashion Boutique E-commerce" data-fr="E-commerce de boutique de mode" data-ar="متجر إلكتروني لبوتيك أزياء">Fashion Boutique E-commerce</h3>
+                            <p class="text-gray-200" data-en="WooCommerce with custom product photography" data-fr="WooCommerce avec photographie de produit personnalisée" data-ar="ووكومرس مع تصوير منتجات مخصص">WooCommerce with custom product photography</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-item">
+                    <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                        <div class="bg-gray-300 h-64"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <h3 class="text-xl font-semibold text-white mb-2" data-en="Restaurant Brand Package" data-fr="Forfait de marque de restaurant" data-ar="حزمة العلامة التجارية للمطعم">Restaurant Brand Package</h3>
+                            <p class="text-gray-200" data-en="Website, menu design, and food photography" data-fr="Site Web, conception de menu et photographie culinaire" data-ar="موقع الويب وتصميم القائمة وتصوير الطعام">Website, menu design, and food photography</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 4 -->
+                <div class="portfolio-item">
+                    <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                        <div class="bg-gray-300 h-64"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <h3 class="text-xl font-semibold text-white mb-2" data-en="Real Estate Platform" data-fr="Plateforme immobilière" data-ar="منصة عقارية">Real Estate Platform</h3>
+                            <p class="text-gray-200" data-en="Property listing site with advanced search" data-fr="Site d'annonces immobilières avec recherche avancée" data-ar="موقع قوائم العقارات مع بحث متقدم">Property listing site with advanced search</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 5 -->
+                <div class="portfolio-item">
+                    <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                        <div class="bg-gray-300 h-64"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <h3 class="text-xl font-semibold text-white mb-2" data-en="Legal Firm Website" data-fr="Site Web de cabinet juridique" data-ar="موقع شركة قانونية">Legal Firm Website</h3>
+                            <p class="text-gray-200" data-en="Professional design with appointment scheduling" data-fr="Conception professionnelle avec prise de rendez-vous" data-ar="تصميم احترافي مع جدولة المواعيد">Professional design with appointment scheduling</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 6 -->
+                <div class="portfolio-item">
+                    <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                        <div class="bg-gray-300 h-64"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <h3 class="text-xl font-semibold text-white mb-2" data-en="Fitness Center Campaign" data-fr="Campagne de centre de fitness" data-ar="حملة مركز اللياقة البدنية">Fitness Center Campaign</h3>
+                            <p class="text-gray-200" data-en="Website and social media marketing package" data-fr="Site Web et forfait marketing sur les réseaux sociaux" data-ar="موقع الويب وحزمة التسويق عبر وسائل التواصل الاجتماعي">Website and social media marketing package</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contact" class="inline-block bg-primary text-dark px-8 py-3 rounded-full font-semibold hover:bg-primary-dark transition-colors" data-en="Discuss Your Project" data-fr="Discuter de votre projet" data-ar="ناقش مشروعك">Discuss Your Project</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Team Section -->
+    <section class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4 section-title" data-en="Meet Our Team" data-fr="Rencontrez notre équipe" data-ar="تعرف على فريقنا">Meet Our Team</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-en="The talented professionals behind JiblWeb" data-fr="Les professionnels talentueux derrière JiblWeb" data-ar="المحترفون الموهوبون وراء JiblWeb">The talented professionals behind JiblWeb</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div class="team-member text-center">
+                    <div class="relative mx-auto rounded-full overflow-hidden w-48 h-48 mb-6 bg-gray-300">
+                        <!-- Team member photo placeholder -->
+                    </div>
+					<h3 class="text-xl font-semibold mb-1" data-en="Soufiane MIKDAM" data-fr="Soufiane MIKDAM" data-ar="سفيان مقدام">Yasmine Amrani</h3>
+                    <p class="text-primary font-medium mb-3" data-en="Founder & Creative Director" data-fr="Fondateur et directeur créatif" data-ar="مؤسس ومدير إبداعي">Founder & Creative Director</p>
+                    <p class="text-gray-600 mb-4" data-en="M9wed f ryo fhadchy dl pcyat" data-fr="Plus de 15 ans d'expérience en conception Web et marketing digital." data-ar="أكثر من 15 عامًا من الخبرة في تصميم الويب والتسويق الرقمي.">Over 15 years of experience in web design and digital marketing.</p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="social-icon-small linkedin">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="#" class="social-icon-small twitter">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="team-member text-center">
+                    <div class="relative mx-auto rounded-full overflow-hidden w-48 h-48 mb-6 bg-gray-300">
+                        <!-- Team member photo placeholder -->
+                    </div>
+                    <h3 class="text-xl font-semibold mb-1" data-en="Karim Benali" data-fr="Karim Benali" data-ar="كريم بنعلي">Karim Benali</h3>
+                    <p class="text-primary font-medium mb-3" data-en="Lead Developer" data-fr="Développeuse principale" data-ar="مطورة رئيسية">Lead Developer</p>
+                    <p class="text-gray-600 mb-4" data-en="Full-stack developer specializing in WordPress and custom solutions." data-fr="Développeuse full-stack spécialisée dans WordPress et les solutions personnalisées." data-ar="مطورة الواجهة الخلفية والأمامية متخصصة في ووردبريس والحلول المخصصة.">Full-stack developer specializing in WordPress and custom solutions.</p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="social-icon-small linkedin">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="#" class="social-icon-small github">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="team-member text-center">
+                    <div class="relative mx-auto rounded-full overflow-hidden w-48 h-48 mb-6 bg-gray-300">
+                        <!-- Team member photo placeholder -->
+                    </div>
+                    <h3 class="text-xl font-semibold mb-1" data-en="Omar Tazi" data-fr="Omar Tazi" data-ar="عمر التازي">Omar Tazi</h3>
+                    <p class="text-primary font-medium mb-3" data-en="Photography Director" data-fr="Directeur de la photographie" data-ar="مدير التصوير">Photography Director</p>
+                    <p class="text-gray-600 mb-4" data-en="Award-winning photographer specializing in product and brand photography." data-fr="Photographe primé spécialisé dans la photographie de produits et de marques." data-ar="مصور حائز على جوائز متخصص في تصوير المنتجات والعلامات التجارية.">Award-winning photographer specializing in product and brand photography.</p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="social-icon-small instagram">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="#" class="social-icon-small linkedin">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="team-member text-center">
+                    <div class="relative mx-auto rounded-full overflow-hidden w-48 h-48 mb-6 bg-gray-300">
+                        <!-- Team member photo placeholder -->
+                    </div>
+                    <h3 class="text-xl font-semibold mb-1" data-en="Nadia El Aouni" data-fr="Nadia El Aouni" data-ar="نادية العوني">Nadia El Aouni</h3>
+                    <p class="text-primary font-medium mb-3" data-en="Digital Marketing Specialist" data-fr="Spécialiste en marketing digital" data-ar="أخصائية التسويق الرقمي">Digital Marketing Specialist</p>
+                    <p class="text-gray-600 mb-4" data-en="Expert in SEO, social media, and paid advertising campaigns." data-fr="Experte en SEO, médias sociaux et campagnes publicitaires payantes." data-ar="خبيرة في تحسين محركات البحث ووسائل التواصل الاجتماعي وحملات الإعلانات المدفوعة.">Expert in SEO, social media, and paid advertising campaigns.</p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="social-icon-small linkedin">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="#" class="social-icon-small twitter">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-dark">
+        <div class="container mx-auto px-4">
+            <div class="bg-gradient-to-br from-background to-primary-dark text-white rounded-2xl p-12 flex flex-wrap md:flex-nowrap shadow-xl relative overflow-hidden">
+                <!-- Decorative Elements -->
+                <div class="contact-shape shape1"></div>
+                <div class="contact-shape shape2"></div>
+                
+                <div class="w-full md:w-1/2 pr-0 md:pr-10 mb-8 md:mb-0 relative z-10">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6" data-en="Let's Bring Your Business Online" data-fr="Mettons votre entreprise en ligne" data-ar="لنقم بإحضار عملك عبر الإنترنت">Let's Bring Your Business Online</h2>
+                    <p class="text-xl mb-8 opacity-90" data-en="Ready to transform your digital presence? Contact us today and let's create something amazing together!" data-fr="Prêt à transformer votre présence numérique? Contactez-nous dès aujourd'hui et créons quelque chose d'incroyable ensemble!" data-ar="هل أنت مستعد لتحويل وجودك الرقمي؟ اتصل بنا اليوم ودعنا نخلق شيئًا رائعًا معًا!">Ready to transform your digital presence? Contact us today and let's create something amazing together!</p>
+                    
+                    <div class="space-y-4 contact-info">
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <span>contact@jiblweb.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            <span>+212 606-606606</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span>Casablanca, Morocco</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/2 relative z-10">
+                    <form class="bg-white p-8 rounded-lg shadow-lg text-gray-900">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 text-sm font-medium mb-2" data-en="Your Name" data-fr="Votre nom" data-ar="اسمك">Your Name</label>
+                            <input type="text" id="name" placeholder="John Doe" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" data-en="Your Name" data-fr="Votre nom" data-ar="اسمك">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 text-sm font-medium mb-2" data-en="Your Email" data-fr="Votre e-mail" data-ar="بريدك الإلكتروني">Your Email</label>
+                            <input type="email" id="email" placeholder="john@example.com" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" data-en="Your Email" data-fr="Votre e-mail" data-ar="بريدك الإلكتروني">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 text-sm font-medium mb-2" data-en="Your Message" data-fr="Votre message" data-ar="رسالتك">Your Message</label>
+                            <textarea id="message" placeholder="Tell us about your project" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" rows="4" data-en="Tell us about your project" data-fr="Parlez-nous de votre projet" data-ar="أخبرنا عن مشروعك"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary text-dark py-3 rounded-full hover:bg-primary-dark transition-all transform hover:-translate-y-1 shadow-lg" data-en="Send Message" data-fr="Envoyer le message" data-ar="أرسل رسالة">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="text-2xl font-bold mb-4 flex items-center">
+                        <span class="logo-text"><span class="logo-jibl">JIBL</span><span class="logo-web">WEB</span></span>
+                        <span class="logo-dot"></span>
+                    </div>
+                    <p class="mb-4 text-gray-400" data-en="We transform your digital presence with custom websites, professional photography, and powerful marketing strategies." data-fr="Nous transformons votre présence numérique avec des sites Web personnalisés, des photographies professionnelles et des stratégies de marketing puissantes." data-ar="نحن نحول وجودك الرقمي بمواقع ويب مخصصة وتصوير احترافي واستراتيجيات تسويق قوية.">We transform your digital presence with custom websites, professional photography, and powerful marketing strategies.</p>
+                    <p class="mb-4" data-en="📍 Based in Morocco Serving businesses nationwide" data-fr="📍 Basé au Maroc Servir les entreprises à l'échelle nationale" data-ar="📍 مقرها في المغرب تخدم الشركات على الصعيد الوطني">📍 Based in Morocco Serving businesses nationwide</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white" data-en="Quick Links" data-fr="Liens rapides" data-ar="روابط سريعة">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="text-gray-400 hover:text-primary transition-colors">Services</a></li>
+                        <li><a href="#pricing" class="text-gray-400 hover:text-primary transition-colors">Pricing</a></li>
+                        <li><a href="#clients" class="text-gray-400 hover:text-primary transition-colors">Clients</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white" data-en="Connect With Us" data-fr="Connectez-vous avec nous" data-ar="تواصل معنا">Connect With Us</h3>
+                    <div class="flex space-x-4 mb-6">
+                        <a href="#" class="social-icon linkedin" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon instagram" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon facebook" aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p data-en="© 2024 JiblWeb. All Rights Reserved." data-fr="© 2024 JiblWeb. Tous droits réservés." data-ar="© 2024 JiblWeb. جميع الحقوق محفوظة.">© 2024 JiblWeb. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <!-- Fallback JavaScript for mobile menu -->
+    <script>
+        // Ensure the mobile menu works even if the main script fails
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileNav = document.getElementById('mobile-nav');
+            
+            if (mobileMenuToggle && mobileNav) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    mobileNav.classList.toggle('hidden');
+                });
+                
+                document.querySelectorAll('#mobile-nav a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileNav.classList.add('hidden');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
